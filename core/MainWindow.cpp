@@ -148,7 +148,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), mpvProcess(nullpt
 
     mpvProcess = new QProcess(this);
 
-    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/youtube_mpv_browser";
+    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/newtube";
     QDir().mkpath(configDir);
 
     QFile configFile(configDir + "/mpv.conf");
@@ -243,13 +243,13 @@ void MainWindow::onAbout() {
     "<h3>NewTube</h3>"
     "<p>Version 1.0</p>"
     "<p>With YouTube automatic video playback in MPV.</p>"
+    "<br>"
     "<p><b>Features:</b></p>"
     "<ul>"
     "<li>Full-featured YouTube</li>"
     "<li>Automatic video opening in MPV</li>"
     "<li>Session and cookies saving</li>"
     "</ul>"
-    "<p>Built with Qt6 and MPV</p>"
-    "<p>Author: Max-Mned</p>"
-    "<p><a href='https://github.com/Max-Mend'>GitHub Profile</a></p>");
+    "<br>"
+    "<p>Built with Qt6 and MPV</p>");
 }
