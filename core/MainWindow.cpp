@@ -93,10 +93,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), mpvProcess(nullpt
     QWebEngineProfile *profile = customPage->profile();
     profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
 
-    QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/newtube";
+    QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir().mkpath(dataPath);
     profile->setPersistentStoragePath(dataPath);
-    profile->setCachePath(dataPath + "/cache");
 
     QWebEngineSettings *settings = customPage->settings();
     settings->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
@@ -149,7 +148,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), mpvProcess(nullpt
 
     mpvProcess = new QProcess(this);
 
-    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/newtube";
+    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/youtube_mpv_browser";
     QDir().mkpath(configDir);
 
     QFile configFile(configDir + "/mpv.conf");
@@ -198,7 +197,7 @@ void MainWindow::playInMpv(const QString &url) {
         mpvProcess->waitForFinished(2000);
     }
 
-    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/newtube";
+    QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + "/youtube_mpv_browser";
     QStringList args;
     args << "--config-dir=" + configDir
          << "--title=YouTube MPV Player"
