@@ -4,7 +4,7 @@ A lightweight NewTube player with autoplay videos in MPV player. Designed for pe
 
 ## Screenshot
 
-![NewTube](screenshot.png)
+![NewTube](photo/1.png)
 
 ## Features
 
